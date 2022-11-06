@@ -32,7 +32,7 @@ public class Main {
 
         System.out.println("Сумма затрат на зарплаты в месяц = " + sumSalary);
         System.out.println("Сотрудник с максимальной зарплатой: " +  listOfAllEmployee.getEmployees()[listOfAllEmployee.calcMaxSalary()]);
-        System.out.println("Сотрудник с минимальной зарплатой: " + listOfAllEmployee.getEmployees()[listOfAllEmployee.calcMinSalary(sumSalary)]);
+        System.out.println("Сотрудник с минимальной зарплатой: " + listOfAllEmployee.calcMinSalary());
         int averageSalary = listOfAllEmployee.calcSumSalary() / Employee.getMeterID();
         System.out.println("Среднее значение зарплат: " + averageSalary);
         String[] nameAllEmployee = new String[Employee.getMeterID()];
@@ -47,7 +47,7 @@ public class Main {
         listOfDepartment.printAllEmployee();
         int sumInDepartment = listOfDepartment.calcSumSalary();
         System.out.println("Затраты на зарплаты в месяц по отделу: " + sumInDepartment);
-        System.out.println("Сотрудник с минимальной зарплатой по отделу: " + listOfDepartment.getEmployees()[listOfDepartment.calcMinSalary(sumInDepartment)]);
+        System.out.println("Сотрудник с минимальной зарплатой по отделу: " + listOfDepartment.calcMinSalary());
         System.out.println("Сотрудник с максимальной зарплатой по отделу: " + listOfDepartment.getEmployees()[listOfDepartment.calcMaxSalary()]);
         averageSalary = listOfDepartment.calcSumSalary() / EmployeeBook.getMeterEmployeeFromDepartment();
         System.out.println("Среднее значение зарплат по отделу: " + averageSalary);
@@ -57,7 +57,7 @@ public class Main {
         listOfDepartment.writeWithoutDepartment();
         System.out.println("-----------------------");
         int sumForSearch = 150000;
-        listOfAllEmployee.findMinSalary(sumForSearch);
+        listOfAllEmployee.findMinimalSalary(sumForSearch);
         System.out.println("-----------------------");
         listOfAllEmployee.findMaxSalary(sumForSearch);
     }

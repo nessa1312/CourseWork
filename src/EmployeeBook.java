@@ -13,16 +13,16 @@ public class EmployeeBook {
         return employees;
     }
 
-    public void setEmployees(Employee[] employees) {
-        this.employees = employees;
-    }
-
     public static int getMeterEmployeeFromDepartment() {
         return meterEmployeeFromDepartment;
     }
 
     public static void setMeterEmployeeFromDepartment(int meterEmployeeFromDepartment) {
         EmployeeBook.meterEmployeeFromDepartment = meterEmployeeFromDepartment;
+    }
+
+    public void setEmployees(Employee[] employees) {
+        this.employees = employees;
     }
 
     public void putInFreeIndex(Employee employee) {
@@ -71,17 +71,17 @@ public class EmployeeBook {
         return indexMaxSalary;
     }
 
-    public int calcMinSalary(int minSalary) {
-        int indexMinSalary = 0;
+    public int calcMinSalary() {
+        int minSalary = 0;
+        minSalary = this.employees[0].getSalary();
         for (int i = 0; i < this.employees.length; i++) {
             if (this.employees[i] != null) {
-                if (this.employees[i].getSalary() < minSalary) {
+                if (this.employees[i].getSalary() < minSalary){
                     minSalary = this.employees[i].getSalary();
-                    indexMinSalary = i;
                 }
             }
         }
-        return indexMinSalary;
+        return minSalary;
     }
 
     public String[] allNameEmployee() {
@@ -129,11 +129,11 @@ public class EmployeeBook {
         }
     }
 
-    public void findMinSalary(int minSalary) {
+    public void findMinimalSalary(int minimalSalary) {
         ArrayList<Employee> temporaryArrayForEmployees = new ArrayList<Employee>();
         for (int i = 0; i < this.employees.length; i++) {
             if (this.employees[i] != null) {
-                if (this.employees[i].getSalary() < minSalary) {
+                if (this.employees[i].getSalary() < minimalSalary) {
                     temporaryArrayForEmployees.add(this.employees[i]);
                 }
             }
