@@ -159,4 +159,19 @@ public class EmployeeBook {
         }
     }
 
+    @Override
+    public boolean equals(Object other) {
+       if (other == null || this.getClass() != other.getClass()){
+           return false;
+       }
+       if (this == other){
+           return true;
+       }
+        return Arrays.equals(employees, ((EmployeeBook) other).employees);
+    }
+
+    @Override
+    public int hashCode() {
+        return java.util.Objects.hashCode(employees);
+    }
 }
